@@ -13,19 +13,12 @@ int check_cycle(listint_t *list)
 
 	temp1 = list;
 	temp2 = list->next;
-	while (temp1)
+	while (temp1 && temp2 && temp2->next)
 	{
-		while (temp2)
-		{
-			if (temp1 == temp2)
-				return (1);
-			if (temp2->next == NULL)
-				return (0);
-			temp2 = temp2->next;
-		}
-		if(temp1->next)
-			return(0);
+		if (temp1 == temp2)
+			return (1);
 		temp1 = temp1->next;
+		temp2 = temp2->next->next;
 	}
 	return (0);
 }
