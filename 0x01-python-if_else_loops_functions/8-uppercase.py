@@ -5,5 +5,5 @@ def uppercase(str):
         car = ord(car)
         if car in range(97, 122):
             car = car - 32
-        print(chr(car), end='')
+        print('{:s}'.format(chr(car)), end='')
     print('')
