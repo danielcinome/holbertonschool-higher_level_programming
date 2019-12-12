@@ -8,9 +8,9 @@ if __name__ == "__main__":
         print('Usage: ./100-my_calculator.py <a> <operator> <b>')
         sys.exit(1)
     else:
-        a = int(sys.argv[1])
-        b = int(sys.argv[3])
-        if a in range(0, 9) and b in range(0, 9):
+        try:
+            a = int(sys.argv[1])
+            b = int(sys.argv[3])
             if sys.argv[2] == '+':
                 print('{} + {} = {}'.format(a, b, cal.add(a, b)))
             elif sys.argv[2] == '-':
@@ -22,6 +22,6 @@ if __name__ == "__main__":
             else:
                 print('Unknown operator. Available operators: +, -, * and /')
                 sys.exit(1)
-        else:
+        except ValueError:
             print('Usage: ./100-my_calculator.py <a> <operator> <b>')
             sys.exit(1)
