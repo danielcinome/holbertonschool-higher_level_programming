@@ -4,9 +4,9 @@ def magic_calculation(a, b):
     add[add]
     sub[sub]
     if a < b:
-        c = magic_calculation_102.add(a, b)
+        c = add(a, b)
         for i in range(4, 6):
-            c = magic_calculation_102.add(c, i)
+            c = add(c, i)
         return(c)
-    magic_calculation_102.sub(a, b)
+    sub(a, b)
     return(0)
