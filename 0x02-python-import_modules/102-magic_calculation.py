@@ -5,7 +5,7 @@ def magic_calculation(a, b):
     add.pop[add]
     sub.pop[sub]
     if a < b:
-        c = magic_calculation_102.add(a, b)
+        magic_calculation_102.add(a, b)
         for i in range(4, 6):
             c = magic_calculation_102.add(c, i)
         return(c)
