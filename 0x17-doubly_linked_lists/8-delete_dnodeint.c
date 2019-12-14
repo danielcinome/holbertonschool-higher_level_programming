@@ -1,16 +1,16 @@
 #include "lists.h"
 
 /**
-* insert_dnodeint_at_index - inserts a new node at a given position.
-* @h : head
-* @idx : index of the list where the new node should be added
-* @n : number
-* Return: the address of the new node, or NULL if it failed
+* delete_dnodeint_at_index - delete_dnodeint_at_index
+* @index : is the index of the node that should be deleted. Index starts at 0
+* @head : head
+* Return: 1 if it succeeded, -1 if it failed
 */
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *ant;
+	dlistint_t *des;
 	dlistint_t *temp;
 	unsigned int i;
 
@@ -19,29 +19,29 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (-1);
 
 	temp = *head;
-	for (i = 0 ; i < index ; i++)
+	if (temp == NULL || temp->next == NULL)
 	{
-		if (temp->next == NULL)
-			return (-1);
-		temp = temp->next;
+		*head = NULL;
+		return (-1);
 	}
-	if (index > 0)
+	if (index == 0)
 	{
-		ant = temp->prev;
-		ant->next = temp->next;
+		des = temp->next;
+		des->prev = NULL;
+		*head = des;
 		free(temp);
 	}
 	else
 	{
-		if (index == 0)
+		for (i = 0 ; i < index ; i++)
 		{
-			*head = temp->next;
+			if (temp->next == NULL)
+				return (-1);
+			temp = temp->next;
+		}
+			ant = temp->prev;
+			ant->next = temp->next;
 			free(temp);
 		}
-		else
-		{
-			free(*head);
-		}
-	}
 	return (1);
 }
