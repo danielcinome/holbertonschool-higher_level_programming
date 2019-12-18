@@ -1,5 +1,21 @@
 #include "lists.h"
+/**
+ * len_node - len of node
+ * @head : head
+ * Return: number of nodes
+ */
 
+int len_node(listint_t *head)
+{
+	int i = 0;
+
+	while (head)
+	{
+		head = head->next;
+		i++;
+	}
+	return (i);
+}
 /**
  * is_palindrome - checks if a singly linked list is a palindrome.
  * @head : head
@@ -14,11 +30,7 @@ int is_palindrome(listint_t **head)
 	if (*head == NULL)
 		return (1);
 	sta = *head;
-	while (sta)
-	{
-		sta = sta->next;
-		len++;
-	}
+	len = len_node(sta);
 	sta = *head;
 	ite = *head;
 	for (i = 1 ; i != len ; i++)
