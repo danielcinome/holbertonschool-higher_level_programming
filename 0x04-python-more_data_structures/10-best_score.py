@@ -1,4 +1,4 @@
-#!/usr/bin/pytohn3
+#!/usr/bin/pytho3
 def best_score(a_dictionary):
     if a_dictionary:
         return max(a_dictionary)
