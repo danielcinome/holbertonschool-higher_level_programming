@@ -11,6 +11,6 @@ def roman_to_int(roman_string):
                 val += r[i]
                 ant = r[i]
             else:
-                val = r[i] - val
+                val = r[i] + val - (2 * ant)
                 ant = r[i]
         return val
