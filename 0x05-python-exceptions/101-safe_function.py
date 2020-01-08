@@ -9,3 +9,4 @@ def safe_function(fct, *args):
         return res
     except (ValueError, TypeError, ZeroDivisionError, IndexError) as error:
         print("Exception: {}".format(error), file=sys.stderr)
+        return None
