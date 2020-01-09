@@ -2,7 +2,7 @@
 class Square:
     def __init__(self, size=0):
         try:
-            self._size = size
+            self.__size = size
             if size < 0:
                 raise ValueError
             if type(size) != int:
