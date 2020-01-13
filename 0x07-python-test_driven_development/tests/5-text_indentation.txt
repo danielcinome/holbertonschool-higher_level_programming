@@ -1,0 +1,46 @@
+===================================
+Task 5-text_indentation.py
+===================================
+
+File test Using "5-text_indentation"
+===================================
+
+function that prints a text with 2 new lines. First import
+""5-text_indentation"" from the "text_indentation" module:
+-------------------------------------------------------------
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+
+-------------------------------------------------------------
+
+   Correct Test:
+Test case #1:
+    >>> text_indentation("""The age of AI. is you favorite serie?""")
+    The age of AI.
+    <BLANKLINE>
+    is you favorite serie?
+    <BLANKLINE>
+    
+Test case #2:
+    >>> text_indentation("this is a . this is : what this is ?")
+    this is a .
+    <BLANKLINE>
+    this is :
+    <BLANKLINE>
+    what this is ?
+    <BLANKLINE>
+
+------------------------------------------------------------
+
+    Failed Type Test:
+Test case #3:
+    >>> text_indentation(231)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test case #4:
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
