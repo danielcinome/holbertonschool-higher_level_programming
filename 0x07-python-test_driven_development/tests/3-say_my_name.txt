@@ -1,0 +1,50 @@
+===================================
+Task 3-say_my_name.py
+===================================
+
+File test Using "say_my_name"
+===================================
+
+function that prints My name is <first name> <last name>. First import
+""3-say_my_name"" from the "say_my_name" module:
+-------------------------------------------------------------
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+-------------------------------------------------------------
+
+    Correct Test:
+Test case #1: A test case with first name and last name
+    >>> say_my_name("Holberton", "School")
+    My name is Holberton School
+
+Test case #2: A test case with first name
+    >>> say_my_name("Will")
+    My name is Will 
+
+---------------------------------------------------------------
+
+    Failed Type Test:
+Test case #3: A test case  with a list in the first name
+    >>> say_my_name(None, "Musk")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Test case #4: A test case with number in the last name
+    >>> say_my_name("stephen", 1)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Test case #5: A test case with None in first name
+    >>> say_my_name(None)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+---------------------------------------------------------------
+
+     Non-Parameters
+Test case #6:
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+

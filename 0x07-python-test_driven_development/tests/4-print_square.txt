@@ -1,0 +1,39 @@
+===================================
+Task 4-print_square.py
+===================================
+
+File test Using "print_square"
+===================================
+
+function that prints a square with the character #. First import
+""4-print_square"" from the "print_square" module:
+-------------------------------------------------------------
+
+    >>> print_square = __import__('4-print_square').print_square
+
+-------------------------------------------------------------
+
+   Correct Test:
+Test case #1:
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+------------------------------------------------------------
+
+    Failed Type Test:
+Test case #2:
+    >>> print_square(-42)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+Test case #3:
+    >>> print_square("a")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+Test case #4:
+    >>> print_square(-0.12)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
