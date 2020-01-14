@@ -1,4 +1,4 @@
-#!/bin/usr/python3
+#!/usr/bin/python3
 """function that adds 2 integers.
    Returns an integer: the addition of a and b
    a and b must be integers or floats, otherwise raise a TypeError
