@@ -53,7 +53,3 @@ class Rectangle:
 
     def __del__(self):
         print("Bye rectangle...")
-
-if __name__ == "__main__":
-    x = Rectangule()
-    del x
