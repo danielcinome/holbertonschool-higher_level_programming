@@ -2,7 +2,7 @@
 
 
 def read_lines(filename="", nb_lines=0):
-    with open(filename, 'r') as my_file:
+    with open(filename, 'r', encoding='utf-8') as my_file:
         n_lines = 0
         for i in my_file:
             n_lines += 1
