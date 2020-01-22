@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from sys import argv
+import sys
 
 
 save = __import__('7-save_to_json_file').save_to_json_file
@@ -7,7 +7,8 @@ load = __import__('8-load_from_json_file').load_from_json_file
 
 try:
     new_file = load("add_item.json")
-    new_file += argv[1:]
 except FileNotFoundError:
-    new_file = argv[1:]
+    new_file = []
+for i in range(1, len(sys.argv)):
+    new_file.append(sys.argv[i])
 save(new_file, "add_item.json")
