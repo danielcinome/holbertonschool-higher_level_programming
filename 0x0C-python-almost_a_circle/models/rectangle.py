@@ -5,11 +5,26 @@ from models.base import Base
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
         super().__init__(id)
+
+    @staticmethod
+    def validation_x_y(value, name):
+        if type(value) is not int:
+            raise TypeError(name + " must be an integer")
+        if value < 0:
+            raise ValueError(name + " must be >= 0")
+
+    @staticmethod
+    def validation_type(value, name):
+        """ validation data type int """
+        if type(value) is not int:
+            raise TypeError(name + " must be an integer")
+        if value <= 0:
+            raise ValueError(name + " must be > 0")
 
     @property
     def width(self):
@@ -17,6 +32,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
+        self.validation_type(value, "width")
         self.__width = value
 
     @property
@@ -25,6 +41,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
+        self.validation_type(value, "height")
         self.__height = value
 
     @property
@@ -32,7 +49,8 @@ class Rectangle(Base):
         return self.__x
 
     @x.setter
-    def height(self, value):
+    def x(self, value):
+        self.validation_x_y(value, "x")
         self.__x = value
 
     @property
@@ -40,5 +58,6 @@ class Rectangle(Base):
         return self.__y
 
     @y.setter
-    def height(self, value):
+    def y(self, value):
+        self.validation_x_y(value, "y")
         self.__y = value
