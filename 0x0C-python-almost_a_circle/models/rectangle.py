@@ -13,6 +13,9 @@ class Rectangle(Base):
 
     @staticmethod
     def validation_x_y(value, name):
+        """ validation type of data
+            int for x and y
+        """
         if type(value) is not int:
             raise TypeError(name + " must be an integer")
         if value < 0:
@@ -20,7 +23,9 @@ class Rectangle(Base):
 
     @staticmethod
     def validation_type(value, name):
-        """ validation data type int """
+        """ validation type of data
+            int for width and height
+        """
         if type(value) is not int:
             raise TypeError(name + " must be an integer")
         if value <= 0:
@@ -61,3 +66,6 @@ class Rectangle(Base):
     def y(self, value):
         self.validation_x_y(value, "y")
         self.__y = value
+
+    def area(self):
+        return self.__width * self.__height
