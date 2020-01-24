@@ -20,6 +20,7 @@ class Rectangle(Base):
             raise TypeError(name + " must be an integer")
         if value < 0:
             raise ValueError(name + " must be >= 0")
+        return value
 
     @staticmethod
     def validation_type(value, name):
@@ -30,6 +31,7 @@ class Rectangle(Base):
             raise TypeError(name + " must be an integer")
         if value <= 0:
             raise ValueError(name + " must be > 0")
+        return value
 
     @property
     def width(self):
@@ -37,8 +39,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        self.validation_type(value, "width")
-        self.__width = value
+        self.__width = self.validation_type(value, "width")
 
     @property
     def height(self):
@@ -46,8 +47,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        self.validation_type(value, "height")
-        self.__height = value
+        self.__height = self.validation_type(value, "height")
 
     @property
     def x(self):
@@ -55,8 +55,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        self.validation_x_y(value, "x")
-        self.__x = value
+        self.__x = self.validation_x_y(value, "x")
 
     @property
     def y(self):
@@ -64,15 +63,14 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        self.validation_x_y(value, "y")
-        self.__y = value
+        self.__y = self.validation_x_y(value, "y")
 
     def area(self):
         """ Return Area """
         return self.__width * self.__height
 
     def display(self):
-        """ Print REctangle """
+        """ Print Rectangle """
         for k in range(0, self.__y):
             print('')
 
@@ -87,14 +85,27 @@ class Rectangle(Base):
         return str("[Rectangle] ({}) {}/{} - {}/{}".format(
             self.id, self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args):
-        if len(args) == 1:
-            super().__init__(args[0])
-        if len(args) == 2:
-            self.__width = args[1]
-        if len(args) == 3:
-            self.__height = args[2]
-        if len(args) == 4:
-            self.__x = args[3]
-        if len(args) == 5:
-            self.__y = args[4]
+    def update(self, *args, **kwargs):
+        if len(args) != 0 and args is not None:
+            if len(args) == 1:
+                super().__init__(args[0])
+            if len(args) == 2:
+                self.__width = self.validation_type(args[1], "width")
+            if len(args) == 3:
+                self.__height = self.validation_type(args[2], "height")
+            if len(args) == 4:
+                self.__x = self.validation_x_y(args[3], "x")
+            if len(args) == 5:
+                self.__y = self.validation_x_y(args[4], "y")
+        else:
+            for name, value in kwargs.items():
+                if name == "id":
+                    super().__init__(value)
+                if name == "width":
+                    self.__width = self.validation_type(value, "width")
+                if name == "height":
+                    self.__height = self.validation_type(value, "height")
+                if name == "x":
+                    self.__x = self.validation_x_y(value, "x")
+                if name == "y":
+                    self.__y = self.validation_x_y(value, "y")
