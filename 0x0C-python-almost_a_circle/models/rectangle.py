@@ -109,3 +109,7 @@ class Rectangle(Base):
                     self.__x = self.validation_x_y(value, "x")
                 if name == "y":
                     self.__y = self.validation_x_y(value, "y")
+
+    def to_dictionary(self):
+        return {'id': self.id, 'widht': self.__width, 'height': self.__height,
+                'x': self.__x, 'y': self.__y}
