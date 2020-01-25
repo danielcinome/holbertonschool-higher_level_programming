@@ -14,8 +14,8 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        super().validation_type(value, "width")
+        self.__size = super().validation_type(value, "width")
 
     def __str__(self):
-        return str("[Square] ({}) {}/{} - {}/{}".format(
-            self.id, self.x, self.y, self.width, self.height))
+        return str("[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.size))
