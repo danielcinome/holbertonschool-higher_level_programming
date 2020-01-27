@@ -13,7 +13,6 @@ class Square(Rectangle):
         """
         Constructor
         """
-        self.size = size
         super().__init__(size, size, x, y, id)
 
     @property
@@ -21,14 +20,14 @@ class Square(Rectangle):
         """
         Getter size
         """
-        return self.__size
+        return self.width
 
     @size.setter
     def size(self, value):
         """
         Setter size
         """
-        self.__size = super().validation_type(value, "width")
+        self.width = super().validation_type(value, "width")
 
     def update(self, *args, **kwargs):
         """
