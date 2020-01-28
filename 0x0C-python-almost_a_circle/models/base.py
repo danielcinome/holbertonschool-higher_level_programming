@@ -82,3 +82,32 @@ class Base:
             return lis
         except IOError:
             return lis
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        .csv
+        """
+        name = cls.__name__
+        my_list = []
+        if list_objs is not None:
+            for i in list_objs:
+                my_list.append(i.to_dictionary())
+        with open(name + '.csv', 'w') as json:
+            json.write(cls.to_json_string(my_list))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        .csv
+        """
+        name = cls.__name__
+        lis = []
+        try:
+            with open(name + '.json', 'r') as json:
+                data = cls.from_json_string(json.read())
+                for i in data:
+                    lis.append(cls.create(**i))
+            return lis
+        except IOError:
+            return lis
