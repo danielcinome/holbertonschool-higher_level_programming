@@ -104,7 +104,7 @@ class Base:
         name = cls.__name__
         lis = []
         try:
-            with open(name + '.json', 'r') as json:
+            with open(name + '.csv', 'r') as json:
                 data = cls.from_json_string(json.read())
                 for i in data:
                     lis.append(cls.create(**i))
