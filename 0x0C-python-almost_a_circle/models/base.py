@@ -3,6 +3,7 @@
 first class Base
 """
 import json
+import turtle
 
 
 class Base:
@@ -111,3 +112,26 @@ class Base:
             return lis
         except IOError:
             return lis
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        for i in list_rectangles:
+            turtle.penup()
+            turtle.setpos(i.x, i.y)
+            turtle.pendown()
+            for j in range(2):
+                turtle.forward(i.width)
+                turtle.right(90)
+                turtle.forward(i.height)
+                turtle.right(90)
+        turtle.done()
+        for i in list_squares:
+            turtle.penup()
+            turtle.setpos(i.x, i.y)
+            turtle.pendown()
+            for j in range(2):
+                turtle.forward(i.size)
+                turtle.right(90)
+                turtle.forward(i.size)
+                turtle.right(90)
+        turtle.done()
