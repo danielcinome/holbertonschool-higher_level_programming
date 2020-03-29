@@ -9,8 +9,8 @@ if __name__ == "__main__":
         passwd=sys.argv[2], db=sys.argv[3], port=3306
         )
     cur = db.cursor()
-    cur.execute('SELECT * FROM states\
-                GROUP BY id ASC')
+    cur.execute("SELECT * FROM states WHERE name = '{}'\
+            ORDER BY states.id ASC".format(sys.argv[4]))
     rows = cur.fetchall()
     for i in rows:
         if i[1] == sys.argv[4]:
