@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # Get all states
+from sqlalchemy import Integer, ForeignKey, String, Column
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
-from model_state import Base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship
+
 
 Base = declarative_base()
 
