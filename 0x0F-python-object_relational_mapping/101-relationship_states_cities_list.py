@@ -23,4 +23,4 @@ if __name__ == "__main__":
         print('{}: {}'.format(ins_state.id, ins_state.name))
         for ins_city in session.query(City).filter(
                 ins_state.id == City.state_id).order_by(City.id):
-            print('\t{}: {}'.format(ins_city.id, ins_city.name))
+            print('    {}: {}'.format(ins_city.id, ins_city.name))
