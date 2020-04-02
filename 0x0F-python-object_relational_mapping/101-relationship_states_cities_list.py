@@ -21,6 +21,5 @@ if __name__ == "__main__":
     session = Session()
     for ins_state in session.query(State).order_by(State.id):
         print('{}: {}'.format(ins_state.id, ins_state.name))
-        for ins_city in session.query(City).filter(
-                ins_state.id == City.state_id).order_by(City.id):
+        for ins_city in ins_state.cities:
             print('    {}: {}'.format(ins_city.id, ins_city.name))
