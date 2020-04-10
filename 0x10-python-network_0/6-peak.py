@@ -4,6 +4,6 @@
 
 def find_peak(list_of_integers):
     if len(list_of_integers) > 0:
-        val = max(list_of_integers)
-        return val
+        list_of_integers.sort()
+        return list_of_integers[-1]
     return None
