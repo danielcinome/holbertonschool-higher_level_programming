@@ -10,8 +10,5 @@ if __name__ == "__main__":
     token = sys.argv[2]
     req = requests.get('https://api.github.com/user'
                        auth=HTTPBasicAuth(user, token))
-    try:
-        req_dict = req.json()
-        print(req_dict.get('id'))
-    except:
-        print('None')
+    req_dict = req.json()
+    print(req_dict.get('id'))
