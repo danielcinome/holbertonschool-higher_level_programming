@@ -12,6 +12,6 @@ if __name__ == "__main__":
                        auth=HTTPBasicAuth(user, token))
     try:
         req_dict = req.json()
-        print(req_dict['id'])
+        print(req_dict.get('id'))
     except:
         print('None')
