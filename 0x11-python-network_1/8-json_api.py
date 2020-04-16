@@ -10,8 +10,8 @@ if __name__ == "__main__":
     else:
         letter = {'q': ''}
     req = requests.post("http://0.0.0.0:5000/search_user", data=letter)
-    try:
-        req_dict = req.json()
+    req_dict = req.json()
+    if req_dict:
         print('[{}] {}'.format(req_dict.get('id'), req_dict.get('name')))
-    except:
+    else:
         print('No result')
