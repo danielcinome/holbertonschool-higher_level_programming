@@ -13,7 +13,7 @@ if __name__ == "__main__":
     if (req.json is not None):
         try:
             req_dict = req.json()
-            print('[{}] {}'.format(req_dict.get('id'), req_dict.get('name')))
+            print('[{}] {}'.format(req_dict['id'], req_dict.['name']))
         except:
             print('Not a valid JSON')
     else:
