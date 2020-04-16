@@ -8,4 +8,4 @@ if __name__ == "__main__":
     with urllib.request.urlopen(req) as request:
         head = request.info()
     head_dic = dict(head)
-    print(head_dic['X-Request-Id'])
+    print(head_dic.get("X-Request-Id"))
