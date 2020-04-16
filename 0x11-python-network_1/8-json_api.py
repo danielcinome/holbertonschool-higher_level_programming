@@ -14,7 +14,7 @@ if __name__ == "__main__":
         try:
             req_dict = req.json()
             print('[{}] {}'.format(req_dict['id'], req_dict['name']))
-        except:
+        except ValueError:
             print('Not a valid JSON')
     else:
         print('No result')
