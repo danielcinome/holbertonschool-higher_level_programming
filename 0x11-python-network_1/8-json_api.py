@@ -11,6 +11,8 @@ if __name__ == "__main__":
         letter = {'q': ''}
     req = requests.post("http://0.0.0.0:5000/search_user", data=letter)
     req_dict = req.json()
+    if type(req_dict) != dict:
+        print('Not a valid JSON')
     if req_dict:
         print('[{}] {}'.format(req_dict.get('id'), req_dict.get('name')))
     else:
