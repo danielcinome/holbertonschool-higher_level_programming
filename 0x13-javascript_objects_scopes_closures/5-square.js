@@ -3,7 +3,6 @@
 class Rectangle {
   constructor (w, h) {
     if ((w > 0 & h > 0)) {
-      this.c = 'X';
       this.width = w;
       this.height = h;
     }
@@ -13,7 +12,7 @@ class Rectangle {
     let i = 0;
 
     while (i < this.height) {
-      console.log(this.c.repeat(parseInt(this.width, 10)));
+      console.log('X'.repeat(parseInt(this.width, 10)));
       i++;
     }
   }
