@@ -4,13 +4,15 @@ const square = require('./5-square');
 class Square extends square {
   charPrint (c) {
     let i = 0;
+    let letter;
+
     if (!c) {
-      c = 'X';
+      letter = 'X';
     } else {
-      c = c;
+      letter = c;
     }
     while (i < this.height) {
-      console.log(c.repeat(parseInt(this.width, 10)));
+      console.log(letter.repeat(parseInt(this.width, 10)));
       i++;
     }
   }
