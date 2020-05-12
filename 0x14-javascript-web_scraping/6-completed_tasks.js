@@ -3,7 +3,6 @@
 const argc = process.argv.slice(2);
 const url = argc[0];
 const request = require('request');
-let i = 0;
 let count = 0;
 
 request(url, function (err, response, body) {
@@ -14,17 +13,16 @@ request(url, function (err, response, body) {
   const obj = {};
   let act = 1;
 
-  while (i < res.length) {
-    if (res[i].completed) {
-      if (act !== res[i].userId) {
+  res.forEach(element => {
+    if (element.completed) {
+      if (act !== element.userId) {
         obj[act] = count;
-        act = res[i].userId;
+        act = element.userId;
         count = 0;
       }
       count++;
     }
-    i++;
-  }
+  });
   obj[act] = count;
   console.log(obj);
 });
