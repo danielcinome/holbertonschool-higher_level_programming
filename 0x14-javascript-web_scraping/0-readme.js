@@ -8,5 +8,5 @@ fs.readFile(file, 'utf-8', function (err, content) {
   if (err) {
     return console.error(err);
   }
-  console.log(content);
+  process.stdout.write(content);
 });
