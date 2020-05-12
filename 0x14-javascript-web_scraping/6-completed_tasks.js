@@ -20,7 +20,7 @@ request(url, function (err, response, body) {
       act = res[i].userId;
       count = 0;
     }
-    if (act === res[i].userId && res[i].completed) {
+    if (res[i].completed) {
       count++;
     }
     i++;
