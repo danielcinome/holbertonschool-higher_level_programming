@@ -15,12 +15,12 @@ request(url, function (err, response, body) {
   let act = 1;
 
   while (i < res.length) {
-    if (act !== res[i].userId) {
-      obj[act] = count;
-      act = res[i].userId;
-      count = 0;
-    }
     if (res[i].completed) {
+      if (act !== res[i].userId) {
+        obj[act] = count;
+        act = res[i].userId;
+        count = 0;
+      }
       count++;
     }
     i++;
